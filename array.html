@@ -1,0 +1,79 @@
+<script>
+const array1 = [];
+const array2 = [1, 2, 3];
+// 중요!!
+// // 배열 Create
+// array1.push(1); // 
+// array1.push('2');
+// array1.push('삼');
+
+// // 배열 Read
+// array1[0];
+// const a1 = array1[0];
+// const a2 = array1[1];
+// const a3 = array1[2];
+
+// // 배열 Update
+// array1[0] = undefined;
+// array1[1] = false;
+// array1[2] = [4, 5, 6, 7]; // 2차 배열(잘 안 씀)
+
+// // 배열 Delete
+
+// //(시작인덱스, 삭제 할 수)
+// array1.splice(0, 1);
+// array1.splice(1, 1);
+// array1.splice(2, 1); // 삭제할 대상이 없어도 아무 일이 안 일어남(에러가 안 남)
+
+// //배열의 length
+// const length1 = array1.length;
+// const length2 = array2.length;
+// const lastIndex = array2.length - 1;
+// const lastValue = array2[lastIndex];
+
+// //배열의 성격
+// let arr1 = []; 
+// let arr2 = [];
+// // quiz1 
+// if (arr1) {// 빈 배열은 true
+//   const result = '참';
+//   console.log(result);
+// } else {
+//   const result = '거짓';
+//   console.log(result);
+// }
+// const quiz2 = arr1 === arr2; // false --> 각 배열을 담아주는 메모리 주소가 다르기 때문에 동치 비교값은 false임
+// const quiz3 = arr1[5]; // 없으면 undefined가 나옴
+// // quiz4
+// arr1[9] = 10;
+
+// //상수를 쓰는 이유 : 배열의 변수의 값을 배열이 아닌 다른 값으로 바꿀 경우, 해당 배열의 메모리 주소를 다시 찾을 수 없음. >> 이를 방지하고자 배열 변수는 const(상수)로 사용함
+
+// //익명 배열
+// console.log([1, 2, 3]);
+
+//실습
+
+// 1부터 5까지 더하기
+const testArray1 = [1, 2, 3, 4, 5];
+let total1 = testArray1[0];
+total1 = total1 + testArray1[1];
+total1 = total1 + testArray1[2];
+total1 += testArray1[3];
+total1 += testArray1[4];
+//평균 구하기
+const avg = total1 / testArray1.length;
+//홀수만 더하기
+const odd1 = testArray1[0] + testArray1[2] + testArray1[4];
+//짝수만 더하기
+const even1 = testArray1[1] + testArray1[3];
+/*
+// //홀수만 지우기
+// testArray1.splice(0, 1);
+// testArray1.splice(1, 1);
+// testArray1.splice(2, 1);
+*/
+//짝수만 지우기
+testArray1.splice(1, 1);
+testArray1.splice(2, 1);
+</script>
