@@ -1,0 +1,73 @@
+<script>
+/*
+// 함수
+
+주로 버튼을 클릭후 동작을 함수에 정의 한다.
+여러줄에 걸쳐 실행되던 동일한 작업을, 함수 호출 한줄로 동일한 결과를 만들어 낼 수 있다. (반복됐던 만큼 코드양이 줄어 가독성을 높일 수 있다.)
+DRY: (Don't repeat yourself)
+동일한 작업이 2번 이상 반복 된다면 무조건 함수로 만든다. (이런 작업을 리팩토링이라 한다.)
+*/
+/**
+ * // 함수 선언부
+ * const 함수명 = function(인자1, 인자2, ...) {
+     실행문;
+     ...
+    return 반환값;
+    };
+    
+* // 함수 호출부
+* const 반환받는상수 = 함수명(인수1, 인수2, ...);
+*/
+
+// const func1 = function(parameter1, parameter2) {
+//   const sum1 = parameter1 + parameter2;
+//   return sum1;
+// };
+// //const returned1 = func1('argument1', 'argument2');
+// const returned1 = 'argument1argument2';
+
+
+// //문제 1
+// const f1 = function(){
+//     console.log('함수 호출');
+// };
+// f1();
+
+// 1. 인수에 데이터 넘기기
+const scriptConst2 = 'a';
+const func2 = function(parameter1) {
+  const compare1 = scriptConst2 === parameter1;
+  parameter1 = 'b';
+  const compare2 = scriptConst2 === parameter1;
+};
+ func2(scriptConst2);
+
+// 2. 인수에 배열 넘기기
+// const scriptConst3 = [];
+// const func3 = function(parameter1) {
+//   const compare1 = scriptConst3 === parameter1; // true
+//   parameter1.push('a');
+//   scriptConst3.push('b');
+//   const compare2 = scriptConst3 === parameter1; //true 
+//   // 두 변수가 같은 메모리 주소를 바라보기 때문에 각각 다른 값을 추가해도 동일하게 바라봄
+// };
+// func3(scriptConst3);
+
+  // 3. 인수에 함수 넘기기 
+const scriptConst4 = function() {};
+const func4 = function(parameter1) {
+  const compare1 = scriptConst4 === parameter1;
+  parameter1 = function() {};
+  const compare2 = scriptConst4 === parameter1;
+};
+func4(scriptConst4);
+
+// 4. 익명 함수를 인수로 넘기기
+const func5 = function(parameter1) {
+  console.log('f5함수 호출');
+  parameter1();
+};
+func5(function() {
+  console.log('익명함수 호출');
+});
+</script>
