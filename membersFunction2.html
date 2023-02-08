@@ -1,0 +1,30 @@
+<script>
+const users = [];
+
+// Create
+const usersCreate = function(user){
+    users.push(user);
+    return 'Created';
+}
+//usersCreate('홍길동');
+
+// Read
+const usersRead = function(){
+    return users;
+}
+//usersRead();
+
+// Update
+const usersUpdate = function(index, user){
+    users[index] = user;
+    return 'Updated';
+}
+//usersUpdate(0, '김유신');
+
+// Delete
+const usersDelete = function(index){
+    users.splice(index, 1);
+    return 'Deleted';
+}
+//usersDelete(0);
+</script>
