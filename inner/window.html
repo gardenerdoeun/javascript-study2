@@ -1,0 +1,32 @@
+<script>
+
+// var 를 이용해서 변수 선언
+// // var는 스크립트 객체가 아닌 윈도우 객체로 사용 됨
+// // var를 사용할 경우, global객체를 덮어 씌울 수 있기 때문에 사용하지 않음
+// var v1 = 'a';
+// v2 = 'b';
+// const condition1 = v1 === window.v1; // true
+// const condition2 = v2 === window.v2; // true
+
+// window 객체 안으로 function 만들기
+// // 함수는 실행 스크립트보다 먼저 실행됨
+// // 스크립트 브레이크 포인트를 설정해도 함수 실행 순서가 더 우선이라 안 잡힘
+// function fl() {}
+// const condition3 = fl === window.fl;
+
+// confirm, alert, console.log
+// // window안에 있는 요소들은 window 생략 가능
+// if (window.confirm('진행 하시겠습니까?')) {
+//   window.console.log('진행');
+// } else {
+//   window.alert('멈춤');
+// }
+
+// JSON(JavaScript Object Notation)
+// const string1 = '[1, 2, 3]';
+// const array1 = JSON.parse(string1); // 파싱 ()
+// const string2 = JSON.stringify(array1);
+
+JSON.stringify([{"abc": 123}], null, 2);
+console.log(JSON.stringify([{"abc": 123}], null, 2));
+</script>
