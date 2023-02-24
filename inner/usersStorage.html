@@ -1,0 +1,43 @@
+<script>
+
+const sessionStorageGet = sessionStorage.getItem('users'); // 배열 변수명은 복수로 작명하기
+const usersLogical = sessionStorageGet || '[]';
+const users = JSON.parse(usersLogical);
+ 
+
+//리팩토링 하기
+const usersSet = function(){
+    const usersSet = JSON.stringify(users);
+    sessionStorage.setItem('users', usersSet);
+}
+
+
+// Create
+const usersCreate = function (user){
+    users.push(user);
+    usersSet();
+    return 'Created';
+}; 
+
+// Read
+const usersRead = function (){
+    sessionStorage.getItem('users');
+    return users;
+}; 
+
+// Delete
+const usersDelete = function(index){
+    users.splice(index, 1);
+    usersSet();
+    return 'Deleted';
+}; 
+
+// Update
+const usersUpdate = function(index, user){
+    users[index] = user;
+    usersSet();
+    return 'Updated';
+}; 
+
+// 로그아웃 시 localStorage.removeItem - 사용 
+</script>
