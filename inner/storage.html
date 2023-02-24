@@ -1,0 +1,66 @@
+<script>
+// sessionStorage 는 브라우저 탭 닫기 전까지 유지됨
+// 새로고침 해도 남아 있지만, 해당 탭이 닫히면 사라진다.
+// 사용 빈도가 낮음 
+// storageGet Create
+sessionStorage.setItem('ss1', 1);
+sessionStorage.setItem('ss2', '이');
+sessionStorage.setItem('ss3', undefined); // 문자로 'undefined'로 등록됨
+
+
+// storageGet Read
+sessionStorage.getItem('ss1');
+const ss1 = sessionStorage.getItem('ss1');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+
+// storageGet Update
+sessionStorage.setItem('ss1', [1, 2, 3]);
+sessionStorage.setItem('ss2', {
+  key1: 'value1'
+});
+sessionStorage.setItem('ss3', function() {});
+
+// storageGet Delete
+sessionStorage.removeItem('ss1');
+sessionStorage.clear();
+
+//localStorage 
+// 저장 기간: 영구 보관이 기본이나, 브라우저에 따라 모바일 환경에 따라 다르다. 용량은 5MB까지
+// 사용 예시 : 팝업
+// 사용 빈도 높음
+
+// storageGet Create
+localStorage.setItem('ls1', 1);
+localStorage.setItem('ls2', '이');
+localStorage.setItem('ls3', undefined); // 문자로 'undefined'로 등록됨
+
+
+// storageGet Read
+localStorage.getItem('ls1');
+const ls1 = localStorage.getItem('ls1');
+const ls2 = localStorage.getItem('ls2');
+const ls3 = localStorage.getItem('ls3');
+
+// storageGet Update
+localStorage.setItem('ls1', [1, 2, 3]);
+localStorage.setItem('ls2', {
+  key1: 'value1'
+});
+localStorage.setItem('ls3', function() {});
+
+// storageGet Delete
+localStorage.removeItem('ls1');
+localStorage.clear();
+
+
+//JSON을 사용해 sessionStorage에 배열 넣기
+const storageGet = sessionStorage.getItem('array2');
+const storageLogical = storageGet || '[1, 2, 3]'; // || 연산자는 앞에 조건을 먼저 확인 한 후 뒤에 조건을 확인한다.
+const array2 = JSON.parse(storageLogical);
+const plus1 = array2.length + 1;
+array2.push(plus1);
+const storageSet = JSON.stringify(array2);
+sessionStorage.setItem('array2', storageSet);
+
+</script>
