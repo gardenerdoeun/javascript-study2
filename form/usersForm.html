@@ -1,0 +1,13 @@
+<!-- 예전에는 form 태그 메소드를 get/post만 사용했음 -->
+<!-- get : 현재 폼 태그안에 있는 인풋 값을 다음 페이지의 url에 넘기는 개념 
+    데이터에 영향을 안주고 읽거나 검색할 때 read 용도 위주로 사용-->
+<!-- post : 데이터를 수정, 삭제 등 용도에 사용함-->
+<script src="./usersForm.js"></script>
+
+<form onsubmit="usersSubmit(event, this);">
+    <input type="text" name="input-text" value="초기값" placeholder="명령을 입력 하세요.">
+    <input type="hidden" name="input-hidden" value="숨겨진값">
+
+    <input type="submit" value="전송">
+    <!-- 다음 페이지로 넘겨주는 기능 -->
+</form>
