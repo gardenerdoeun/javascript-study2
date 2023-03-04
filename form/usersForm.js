@@ -20,8 +20,15 @@ const usersCreate = function (user){
 
 // Read
 const usersRead = function (){
-    for(let index in users){
-        document.writeln(users[index]); //index 숫자를 문자형으로 등록해도 인식함 ex)users['1'];
+    // for(let index in users){
+    //     document.writeln(users[index]); //index 숫자를 문자형으로 등록해도 인식함 ex)users['1'];
+    // }
+    const tagPre = document.getElementById('tag-pre');
+    for (let index in users) {
+        tagPre.innerHTML += users[index] + '\n';
+    // let innerHTML = tagPre.innerHTML + users[index];
+    // innerHTML += '\n';
+    // tagPre.innerHTML = innerHTML;
     }
     return users;
 }; 
