@@ -1,3 +1,21 @@
+// 주소의 쿼리스트링 받아오기
+const queryString = new URLSearchParams(window.location.search);
+const nameText = queryString.get('input-text');
+
+// // html 태그 내의 'input-text' name에 접근
+// const inputTextObjects = document.getElementsByName('input-text'); // 배열로 받아옴, 없으면 빈 배열을 받아옴
+// const inputTextObject = inputTextObjects[0];
+const inputTextObject = document.getElementsByName('input-text')[0];
+
+//input value 값 넣기
+inputTextObject.value = nameText;
+
+// 쿼리스트링 getAll() 사용
+const inputHiddens = queryString.getAll('input-hidden');
+const inputHidden = inputHiddens[0];
+
+inputTextObject.focus();
+inputTextObject.blur();
 
 const sessionStorageGet = sessionStorage.getItem('users'); // 배열 변수명은 복수로 작명하기
 const usersLogical = sessionStorageGet || '[]';
@@ -65,3 +83,5 @@ const usersSubmit = function(event, form) {
 usersRead();
 
 // 로그아웃 시 localStorage.removeItem - 사용 
+
+
