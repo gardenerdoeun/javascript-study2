@@ -7,5 +7,11 @@
     <!-- 다음 페이지로 넘겨주는 기능 -->
 </form>
 
-<!-- pre 새로고침 기능을 화면에서 바로 적용 -->
-<pre id="tag-pre"></pre>
+<div id="tag-div-parent"></div>
+<div style="display: none;">
+  <div id="tag-div-child">
+    <input type="text" name="users-name" value="">
+    <button name="users-update" onclick="usersUpdate(index)">Update</button>
+    <button name="users-delete" onclick="usersDelete(index)">Delete</button>
+  </div>
+</div>

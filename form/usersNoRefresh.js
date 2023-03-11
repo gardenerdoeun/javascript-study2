@@ -39,18 +39,24 @@ const usersCreate = function (form){
 }; 
 
 // Read
-const usersRead = function (){
-    const tagPre = document.getElementById('tag-pre');
-    tagPre.innerHTML = '';
+const usersRead = function() {
+    const tagDivParent = document.getElementById('tag-div-parent');
+    tagDivParent.innerHTML = '';
+    const tagDivChild = document.getElementById('tag-div-child');
     for (let index in users) {
-        tagPre.innerHTML += '<input type="text" name="users-name" value="' + users[index] + '">';
-        tagPre.innerHTML += '<button onclick="usersUpdate(' + index + ')">Update</button>';
-        tagPre.innerHTML += '<button onclick="usersDelete(' + index + ')">Delete</button>';
-        tagPre.innerHTML += '\n';
+        const newDivChild = tagDivChild.cloneNode(true);
+        tagDivParent.appendChild(newDivChild);
+
+        const usersNameObject = document.getElementsByName('users-name')[index];
+        const usersUpdateObject = document.getElementsByName('users-update')[index];
+        const usersDeleteObject = document.getElementsByName('users-delete')[index];
+        usersNameObject.value = users[index];
+        usersUpdateObject.index = index; // 제공되는 .index 속성은 없음 -> 단, 모든 태그는 object 타입이기 때문에 index라는 속성을 임시 생성
+        usersDeleteObject.index = index;
     }
-    console.log('Read', users); // Read의 과거형
+    console.log('Read', users);
     return users;
-}; 
+  };
 
 // Delete
 const usersDelete = function(index){
@@ -66,19 +72,6 @@ const usersUpdate = function(index){
     usersSet();
     return usersRead();
 }; 
-
-const usersSubmit = function(event, form) {
-    const inputTextObject = form['input-text'];
-    try {
-      const evalReturn = eval(inputTextObject.value);
-
-      console.log(evalReturn);
-    } catch(error) {
-      console.error(error);
-      alert(error);
-      event.preventDefault();
-    }
-}
 
 usersRead();
 // 로그아웃 시 localStorage.removeItem - 사용 
