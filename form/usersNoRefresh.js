@@ -11,8 +11,8 @@ const inputTextObject = document.getElementsByName('input-text')[0];
 inputTextObject.value = nameText;
 
 // 쿼리스트링 getAll() 사용
-const inputHiddens = queryString.getAll('input-hidden');
-const inputHidden = inputHiddens[0];
+const inputHiddenList = queryString.getAll('input-hidden');
+const inputHidden = inputHiddenList[0];
 
 inputTextObject.focus();
 inputTextObject.blur();
@@ -48,7 +48,7 @@ const usersRead = function (){
         tagPre.innerHTML += '<button onclick="usersDelete(' + index + ')">Delete</button>';
         tagPre.innerHTML += '\n';
     }
-    console.log('Readed', users);
+    console.log('Read', users); // Read의 과거형
     return users;
 }; 
 
